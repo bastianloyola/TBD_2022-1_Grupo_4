@@ -1,17 +1,19 @@
 package cl.tbd.backendayni.models;
 
 //import org.postgis.PGgeometry;
+import org.springframework.data.annotation.Id;
 
 public class Region {
-    //ATRIBUTOS de REGION
+    // ATRIBUTOS de REGION
     /**
-     * @param id id 
+     * @param id        id
      * @param id_region id de la region
-     * @param nom_reg nombre de la region
-     * @param geom geometria de la region
+     * @param nom_reg   nombre de la region
+     * @param geom      geometria de la region
      */
-    private long id;
-    private long id_region;
+    @Id
+    private String id;
+    private String id_region;
     private String nom_reg;
     private String geom;
 
@@ -19,7 +21,7 @@ public class Region {
     public Region() {
     }
 
-    public Region(long id, long id_region, String nom_reg, String geom) {
+    public Region(String id, String id_region, String nom_reg, String geom) {
         this.id = id;
         this.id_region = id_region;
         this.nom_reg = nom_reg;
@@ -27,11 +29,11 @@ public class Region {
     }
 
     // Getters
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public long getId_region() {
+    public String getId_region() {
         return id_region;
     }
 
@@ -45,11 +47,11 @@ public class Region {
 
     // Setters
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public void setId_region(long id_region) {
+    public void setId_region(String id_region) {
         this.id_region = id_region;
     }
 

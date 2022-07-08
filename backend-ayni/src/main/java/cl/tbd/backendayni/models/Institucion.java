@@ -1,32 +1,35 @@
 package cl.tbd.backendayni.models;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
 
 @EntityScan
 public class Institucion {
-    /** 
-    * ATRIBUTOS DE INSTITUCION
-    * @param id de la institucion
-    * @param nombre de la institucion
-    * @param usuario de la institucion
-    * @param password de la institucion
-    * @param correo de la institucion
-    * @param numero de la institucion
-    */
+    /**
+     * ATRIBUTOS DE INSTITUCION
+     * 
+     * @param id       de la institucion
+     * @param nombre   de la institucion
+     * @param usuario  de la institucion
+     * @param password de la institucion
+     * @param correo   de la institucion
+     * @param numero   de la institucion
+     */
 
-    private long id;
+    @Id
+    private String id;
     private String nombre;
     private String usuario;
     private String password;
     private String correo;
     private String numero;
 
-    //CONSTRUCTOR INSTITUCION
-    public Institucion(){
+    // CONSTRUCTOR INSTITUCION
+    public Institucion() {
     }
 
-    //CONSTRUCTOR INSTITUCION
-    public Institucion(long id, String nombre, String usuario, String password, String correo, String numero){
+    // CONSTRUCTOR INSTITUCION
+    public Institucion(String id, String nombre, String usuario, String password, String correo, String numero) {
         this.id = id;
         this.nombre = nombre;
         this.usuario = usuario;
@@ -35,12 +38,12 @@ public class Institucion {
         this.numero = numero;
     }
 
-    //GETTERS INSTITUCION
+    // GETTERS INSTITUCION
 
     /**
      * @return id
      */
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -79,12 +82,12 @@ public class Institucion {
         return numero;
     }
 
-    //SETTERS INSTITUCION
+    // SETTERS INSTITUCION
 
     /**
      * @param id de la institucion
      */
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -101,7 +104,7 @@ public class Institucion {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-    
+
     /**
      * @param password de la institucion
      */
@@ -123,7 +126,7 @@ public class Institucion {
         this.numero = numero;
     }
 
-    //TOSTRING INSTITUCION
+    // TOSTRING INSTITUCION
 
     /**
      * @return toString de la institucion
@@ -141,4 +144,3 @@ public class Institucion {
     }
 
 }
-

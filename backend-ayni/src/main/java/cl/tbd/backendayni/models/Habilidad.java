@@ -1,37 +1,39 @@
 package cl.tbd.backendayni.models;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
 
 @EntityScan
 public class Habilidad {
     /**
      * ATRIBUTOS DE Habilidad
-     * @param id de la habilidad
+     * 
+     * @param id     de la habilidad
      * @param nombre de la habilidad
      */
-
-    private long id;
+    @Id
+    private String id;
     private String nombre;
 
-    //CONSTRUCTOR Habilidad
-    public Habilidad(){
+    // CONSTRUCTOR Habilidad
+    public Habilidad() {
     }
 
-    //CONSTRUCTOR Habilidad
-    public Habilidad(long id, String nombre){
+    // CONSTRUCTOR Habilidad
+    public Habilidad(String id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
-    //GETTERS Habilidad
+    // GETTERS Habilidad
 
     /**
      * @return id
      */
-    public long getId() {
+    public String getId() {
         return id;
     }
-    
+
     /**
      * @return nombre
      */
@@ -39,12 +41,12 @@ public class Habilidad {
         return nombre;
     }
 
-    //SETTERS Habilidad
+    // SETTERS Habilidad
 
     /**
      * @param id de la habilidad
      */
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -55,7 +57,7 @@ public class Habilidad {
         this.nombre = nombre;
     }
 
-    //TOSTRING Habilidad
+    // TOSTRING Habilidad
 
     /**
      * @return String
@@ -67,5 +69,5 @@ public class Habilidad {
                 ", nombre='" + nombre + '\'' +
                 '}';
     }
-    
+
 }

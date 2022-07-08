@@ -3,6 +3,7 @@ package cl.tbd.backendayni.models;
 import java.sql.Date;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
 
 @EntityScan
 public class Emergencia {
@@ -19,7 +20,8 @@ public class Emergencia {
      * @param latitude          de la emergencia
      * @param geom              de la emergencia
      */
-    private long id;
+    @Id
+    private String id;
     private String nombre;
     private String descripcion;
     private Date fecha;
@@ -34,7 +36,7 @@ public class Emergencia {
     }
 
     // CONSTRUCTOR Emergencia
-    public Emergencia(long id, String nombre, String descripcion, Date fecha, String reqs_grupales,
+    public Emergencia(String id, String nombre, String descripcion, Date fecha, String reqs_grupales,
             String reqs_individuales, double longitude, double latitude, String geom) {
         this.id = id;
         this.nombre = nombre;
@@ -52,7 +54,7 @@ public class Emergencia {
     /**
      * @return id
      */
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -117,7 +119,7 @@ public class Emergencia {
     /**
      * @param id id a setear
      */
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

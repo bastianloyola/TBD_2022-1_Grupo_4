@@ -1,7 +1,8 @@
 package cl.tbd.backendayni.models;
 
-import java.sql.Date;
+import java.util.Date;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
 
 @EntityScan
 public class Tarea {
@@ -17,9 +18,9 @@ public class Tarea {
 	 * @param latitude       de la tarea
 	 * @param geom           de la tarea
 	 */
-
-	private long id;
-	private long id_emergencia;
+	@Id
+	private String id;
+	private String id_emergencia;
 	private String nombre;
 	private String descripcion;
 	private Date fecha;
@@ -33,7 +34,7 @@ public class Tarea {
 	}
 
 	// Constructor de la clase Tarea
-	public Tarea(long id, long id_emergencia, String nombre, String descripcion, Date fecha, String requerimientos,
+	public Tarea(String id, String id_emergencia, String nombre, String descripcion, Date fecha, String requerimientos,
 			double longitude, double latitude, String geom) {
 		this.id = id;
 		this.id_emergencia = id_emergencia;
@@ -51,14 +52,14 @@ public class Tarea {
 	/**
 	 * @return id
 	 */
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * @return id_emergencia
 	 */
-	public long getId_emergencia() {
+	public String getId_emergencia() {
 		return id_emergencia;
 	}
 
@@ -116,14 +117,14 @@ public class Tarea {
 	/**
 	 * @param id de la tarea
 	 */
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
 	/**
 	 * @param id_emergencia de la tarea
 	 */
-	public void setId_emergencia(long id_emergencia) {
+	public void setId_emergencia(String id_emergencia) {
 		this.id_emergencia = id_emergencia;
 	}
 
