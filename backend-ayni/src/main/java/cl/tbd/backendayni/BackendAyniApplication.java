@@ -27,7 +27,6 @@ public class BackendAyniApplication implements CommandLineRunner {
 		// save a couple of customers
 		repository.save(new Customer("Alice", "Smith"));
 		repository.save(new Customer("Bob", "Smith"));
-		repository.deleteAll();
 
 		// fetch all customers
 		System.out.println("Customers found with findAll():");
