@@ -14,9 +14,6 @@ public class Tarea {
 	 * @param descripcion    de la tarea
 	 * @param fecha          de la tarea
 	 * @param requerimientos de la tarea
-	 * @param longitude      de la tarea
-	 * @param latitude       de la tarea
-	 * @param geom           de la tarea
 	 */
 	@Id
 	private String id;
@@ -25,26 +22,19 @@ public class Tarea {
 	private String descripcion;
 	private Date fecha;
 	private String requerimientos;
-	private double longitude;
-	private double latitude;
-	private String geom;
 
 	// CONSTRUCTOR TAREA
 	public Tarea() {
 	}
 
 	// Constructor de la clase Tarea
-	public Tarea(String id, String id_emergencia, String nombre, String descripcion, Date fecha, String requerimientos,
-			double longitude, double latitude, String geom) {
-		this.id = id;
+	public Tarea(String id_emergencia, String nombre, String descripcion, Date fecha, String requerimientos
+			) {
 		this.id_emergencia = id_emergencia;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fecha = fecha;
 		this.requerimientos = requerimientos;
-		this.longitude = longitude;
-		this.latitude = latitude;
-		this.geom = geom;
 	}
 
 	// GETTERS TAREA
@@ -91,27 +81,6 @@ public class Tarea {
 		return requerimientos;
 	}
 
-	/**
-	 * @return longitude
-	 */
-	public double getLongitude() {
-		return longitude;
-	}
-
-	/**
-	 * @return latitude
-	 */
-	public double getLatitude() {
-		return latitude;
-	}
-
-	/**
-	 * @return geom
-	 */
-	public String getGeom() {
-		return geom;
-	}
-
 	// SETTERS TAREA
 
 	/**
@@ -156,33 +125,11 @@ public class Tarea {
 		this.requerimientos = requerimientos;
 	}
 
-	/**
-	 * @param longitude de la tarea
-	 */
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
-	}
-
-	/**
-	 * @param latitude de la tarea
-	 */
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
-
-	/**
-	 * @param geom de la tarea
-	 */
-	public void setGeom(String geom) {
-		this.geom = geom;
-	}
-
 	// TOSTRING TAREA
 	@Override
 	public String toString() {
 		return "Tarea [id=" + id + ", id_emergencia=" + id_emergencia + ", nombre=" + nombre + ", descripcion="
-				+ descripcion + ", fecha=" + fecha + ", requerimientos=" + requerimientos + ", longitude=" + longitude
-				+ ", latitude=" + latitude + "]";
+				+ descripcion + ", fecha=" + fecha + ", requerimientos=" + requerimientos + "]";
 	}
 
 }
