@@ -11,14 +11,4 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  */
 public interface VoluntarioRepository extends MongoRepository<Voluntario, String> {
 
-    // CRUD de Mongodb
-    List<Voluntario> findAll();
-
-    Optional<Voluntario> findById(String id);
-
-    // Voluntario save(Voluntario voluntario);
-
-    void delete(Voluntario voluntario);
-
-    void deleteAll();
 }
