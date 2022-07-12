@@ -1,28 +1,30 @@
 package cl.tbd.backendayni.models;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
 
 @EntityScan
 public class Voluntario {
-    /** 
-    * ATRIBUTOS DE Voluntario
-    * @param  id
-    * @param correo 
-    * @param usuario
-    * @param nombre
-    * @param password
-    * @param atributos 
-    */
-
-    private long id;
+    /**
+     * ATRIBUTOS DE Voluntario
+     * 
+     * @param id
+     * @param correo
+     * @param usuario
+     * @param nombre
+     * @param password
+     * @param atributos
+     */
+    @Id
+    private String id;
     private String correo;
     private String usuario;
     private String nombre;
     private String password;
     private String atributos;
 
-    //CONSTRUCTOR Voluntario
-    public Voluntario(){
+    // CONSTRUCTOR Voluntario
+    public Voluntario() {
     }
 
     // CONSTRUCTOR Voluntario
@@ -34,12 +36,12 @@ public class Voluntario {
         this.atributos = atributos;
     }
 
-    //GETTERS Voluntario
+    // GETTERS Voluntario
 
     /**
      * @return id
      */
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -78,12 +80,12 @@ public class Voluntario {
         return atributos;
     }
 
-    //SETTERS Voluntario
+    // SETTERS Voluntario
 
     /**
      * @param id id a setear
      */
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -122,7 +124,7 @@ public class Voluntario {
         this.atributos = atributos;
     }
 
-    //TOSTRING Voluntario
+    // TOSTRING Voluntario
 
     /**
      * @return String
@@ -138,6 +140,5 @@ public class Voluntario {
                 ", atributos='" + atributos + '\'' +
                 '}';
     }
-
 
 }

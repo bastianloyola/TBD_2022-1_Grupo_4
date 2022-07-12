@@ -2,6 +2,7 @@ package cl.tbd.backendayni.models;
 
 import java.sql.Date;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
 
 @EntityScan
 public class Tarea {
@@ -17,12 +18,12 @@ public class Tarea {
 	 * @param latitude       de la tarea
 	 * @param geom           de la tarea
 	 */
-
-	private long id;
-	private long id_emergencia;
+	@Id
+	private String id;
+	private String id_emergencia;
 	private String nombre;
 	private String descripcion;
-	private Date fecha;
+	private String fecha;
 	private String requerimientos;
 	private String longitude;
 	private String latitude;
@@ -32,13 +33,15 @@ public class Tarea {
 	}
 
 	// Constructor de la clase Tarea
-	public Tarea(String id_emergencia, String nombre, String descripcion, Date fecha, String requerimientos
-			) {
+	public Tarea(String id_emergencia, String nombre, String descripcion, String fecha, String requerimientos,
+			String longitude, String latitude) {
 		this.id_emergencia = id_emergencia;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fecha = fecha;
 		this.requerimientos = requerimientos;
+		this.longitude = longitude;
+		this.latitude = latitude;
 	}
 
 	// GETTERS TAREA
@@ -46,14 +49,14 @@ public class Tarea {
 	/**
 	 * @return id
 	 */
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * @return id_emergencia
 	 */
-	public long getId_emergencia() {
+	public String getId_emergencia() {
 		return id_emergencia;
 	}
 
@@ -74,7 +77,7 @@ public class Tarea {
 	/**
 	 * @return fecha
 	 */
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
@@ -85,19 +88,33 @@ public class Tarea {
 		return requerimientos;
 	}
 
+	/**
+	 * @return longitude
+	 */
+	public String getLongitude() {
+		return longitude;
+	}
+
+	/**
+	 * @return latitude
+	 */
+	public String getLatitude() {
+		return latitude;
+	}
+
 	// SETTERS TAREA
 
 	/**
 	 * @param id de la tarea
 	 */
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
 	/**
 	 * @param id_emergencia de la tarea
 	 */
-	public void setId_emergencia(long id_emergencia) {
+	public void setId_emergencia(String id_emergencia) {
 		this.id_emergencia = id_emergencia;
 	}
 
@@ -118,7 +135,7 @@ public class Tarea {
 	/**
 	 * @param fecha de la tarea
 	 */
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 
@@ -127,6 +144,20 @@ public class Tarea {
 	 */
 	public void setRequerimientos(String requerimientos) {
 		this.requerimientos = requerimientos;
+	}
+
+	/**
+	 * @param longitude de la tarea
+	 */
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+
+	/**
+	 * @param latitude de la tarea
+	 */
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
 	}
 
 	// TOSTRING TAREA
