@@ -8,6 +8,13 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 /*Interface para TareaRepository*/
 public interface TareaRepository extends MongoRepository<Tarea, String> {
+    // Crud Repository
+    List<Tarea> findAll();
 
-    public Tarea findByNombre(String nombre);
+    Optional<Tarea> findById(String id);
+
+    Tarea save(Tarea tarea);
+
+    void delete(Tarea tarea);
+
 }
