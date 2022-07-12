@@ -99,8 +99,6 @@ public class TareaRepositoryImp implements TareaRepository {
                     .addParameter("descripcion2", tarea.getDescripcion())
                     .addParameter("fecha2", tarea.getFecha())
                     .addParameter("requerimientos2", tarea.getRequerimientos())
-                    .addParameter("longitude2", tarea.getLongitude())
-                    .addParameter("latitude2", tarea.getLatitude())
                     .executeUpdate();
             tarea.setId(newId());
 
@@ -150,12 +148,6 @@ public class TareaRepositoryImp implements TareaRepository {
                     .addParameter("descripcion2", tarea.getDescripcion())
                     .addParameter("fecha2", tarea.getFecha())
                     .addParameter("requerimientos2", tarea.getRequerimientos())
-                    .addParameter("longitude2", tarea.getLongitude())
-                    .addParameter("latitude2", tarea.getLatitude())
-                    .addParameter("id2", tarea.getId())
-                    .executeUpdate();
-            conn.createQuery("UPDATE tarea SET geom = ST_MakePoint(latitude, longitude) WHERE id = :id2")
-                    .addParameter("id2", tarea.getId())
                     .executeUpdate();
 
         } catch (Exception e) {
@@ -175,7 +167,7 @@ public class TareaRepositoryImp implements TareaRepository {
      *      id)
      */
     @Override
-    public List<Tarea> getTareaByIdEmergencia(long id) {
+    public List<Tarea> getTareaByIdEmergencia(String id) {
         String SQL_SELECT = "SELECT id, id_emergencia, nombre, descripcion, fecha, requerimientos, longitude, latitude, ST_AsText(geom) AS geom FROM tarea WHERE tarea.id_emergencia = :id";
         try (Connection conn = sql2o.open()) {
             return conn.createQuery(SQL_SELECT)
@@ -198,7 +190,7 @@ public class TareaRepositoryImp implements TareaRepository {
      *      id)
      */
     @Override
-    public List<Tarea> getTareaByIdRegion(long id){
+    public List<Tarea> getTareaByIdRegion(String id){
         String SQL_SELECT = "SELECT tarea.id, tarea.id_emergencia, tarea.nombre, tarea.descripcion, tarea.fecha, tarea.requerimientos, tarea.longitude, tarea.latitude, ST_AsText(tarea.geom) AS geom FROM  tarea JOIN regiones ON ST_Intersects(regiones.geom,tarea.geom) WHERE regiones.id_region = :id";
         try(Connection conn = sql2o.open()){
             return conn.createQuery(SQL_SELECT)
