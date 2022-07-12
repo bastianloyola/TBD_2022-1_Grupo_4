@@ -25,9 +25,8 @@ public class Voluntario {
     public Voluntario(){
     }
 
-    //CONSTRUCTOR Voluntario
-    public Voluntario(long id, String correo, String usuario, String nombre, String password, String atributos){
-        this.id = id;
+    // CONSTRUCTOR Voluntario
+    public Voluntario(String correo, String usuario, String nombre, String password, String atributos) {
         this.correo = correo;
         this.usuario = usuario;
         this.nombre = nombre;
